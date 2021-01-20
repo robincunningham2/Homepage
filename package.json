@@ -16,7 +16,5 @@
     "url": "https://github.com/robincunningham2/Homepage/issues"
   },
   "homepage": "https://github.com/robincunningham2/Homepage#readme",
-  "dependencies": {
-    "fs": "0.0.1-security"
-  }
+  "dependencies": {}
 }
