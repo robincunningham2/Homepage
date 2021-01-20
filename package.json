@@ -4,7 +4,8 @@
   "description": "A Google Chrome extension, which gives you a clean homepage",
   "main": "lib/main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "bump": "node scripts/bump.js $3"
   },
   "repository": {
     "type": "git",
