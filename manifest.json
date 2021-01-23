@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "A Google Chrome extension, which gives you a clean homepage",
   "chrome_url_overrides": {
-    "newtab": "www/index.html"
+    "newtab": "index.html"
   },
   "manifest_version": 2
 }
