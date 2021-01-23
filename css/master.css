@@ -53,6 +53,10 @@ div.center #search {
     transition-duration: .65s;
 }
 
+div.center #search::placeholder {
+    color: #9f9f9f;
+}
+
 div.center #search:focus {
     width: 550px;
     background-color: rgba(0, 0, 0, .5);
