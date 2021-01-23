@@ -44,3 +44,10 @@ const timeCallback = () => {
 };
 
 timeCallback();
+
+$(document).on('keypress', (e) => {
+    if (e.which == 13) { // Check for enter key
+        const input = $('#search').val();
+        open(`https://www.google.com/search?q=${input}`, '_self');
+    }
+});
