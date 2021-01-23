@@ -25,9 +25,21 @@ const getTime = () => {
     return `${hours}:${minutes}:${seconds}`;
 };
 
-const timeCallback = () => {
+const getDate = () => {
     const now = new Date();
+    let year = `${now.getFullYear()}`;
+    let month = `${now.getMonth() + 1}`;
+    let day = `${now.getDate()}`;
+
+    if (month.length < 2) month = '0' + month;
+    if (day.length < 2) day = '0' + day;
+
+    return `${year} · ${month} · ${day}`;
+};
+
+const timeCallback = () => {
     $('#time').html(getTime());
+    $('#date').html(getDate());
     setTimeout(timeCallback, 100);
 };
 
