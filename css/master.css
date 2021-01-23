@@ -16,8 +16,9 @@ body {
     margin: 0;
     height: 100%;
     width: 100%;
-    overflow: auto;
+    overflow: hidden;
     background-color: #121212;
+    font-family: 'SiyamRupali', Arial, sans-serif;
 }
 
 .fullscreen {
@@ -25,8 +26,20 @@ body {
     height: 100%;
 }
 
-div.background {
-    z-index: 1;
+.background {
     background-size: auto 100%;
     filter: blur(10px);
+}
+
+div.center {
+    position: fixed;
+    top: 27%;
+    width: 100%;
+    text-align: center;
+    color: white;
+}
+
+div.center h1 {
+    font-size: 74px;
+    text-shadow: 0 0 15px rgba(0, 0, 0, .35);
 }
