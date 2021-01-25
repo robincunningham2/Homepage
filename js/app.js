@@ -12,6 +12,48 @@ $('.background').css({
     'background-image': `url('${url}')`
 });
 
+const Storage = {
+    data: () => {
+        let data = {};
+        for (let i = 0; localStorage.key(i) != null; i++) {
+            const key = localStorage.key(i),
+                item = localStorage.getItem(key);
+            
+            data[key] = JSON.parse(item);
+        }
+
+        data['_length'] = localStorage.length;
+        return data;
+    },
+    set: (key, data) => {
+        if (typeof key != 'string')
+            throw new TypeError(`Cannot convert type ${typeof key} to string`);
+        
+        data = JSON.stringify(data);
+        return localStorage.setItem(key, data);
+    },
+    get: (key) => {
+        if (typeof key != 'string')
+            throw new TypeError(`Cannot convert type ${typeof key} to string`);
+        let data = localStorage.getItem(key);
+        data = JSON.parse(data);
+        return data;
+    },
+    delete: (key) => {
+        if (typeof key != 'string')
+            throw new TypeError(`Cannot convert type ${typeof key} to string`);
+        return localStorage.removeItem(key);
+    },
+    clear: () => {
+        return localStorage.clear();
+    }
+};
+
+if (!Storage.get('init')) {
+    Storage.clear();
+    Storage.set('init', true);
+}
+
 const getTime = () => {
     const now = new Date();
     let hours = `${now.getHours()}`;
