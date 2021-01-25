@@ -45,9 +45,21 @@ const timeCallback = () => {
 
 timeCallback();
 
+const pattern = new RegExp('^(https?:\\/\\/)?'+
+    '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|'+
+    '((\\d{1,3}\\.){3}\\d{1,3}))'+
+    '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*'+
+    '(\\?[;&a-z\\d%_.~+=-]*)?'+
+    '(\\#[-a-z\\d_]*)?$','i');
+
 $(document).on('keypress', (e) => {
     if (e.which == 13) { // Check for enter key
-        const input = $('#search').val();
-        open(`https://www.google.com/search?q=${input}`, '_self');
+        let input = $('#search').val();
+        let islink = !!pattern.test(input);
+
+        if (islink) {
+            if (!input.split('//')[0].endsWith(':')) input = 'http://' + input;
+            open(input, '_self');
+        } else open(`https://www.google.com/search?q=${input}`, '_self');
     }
 });
