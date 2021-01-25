@@ -1,7 +1,7 @@
 {
   "private": true,
   "name": "homepage",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A Google Chrome extension, which gives you a clean homepage",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
