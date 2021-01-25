@@ -42,6 +42,7 @@ div.center {
 div.center h1 {
     font-size: 74px;
     text-shadow: 0 0 15px rgba(0, 0, 0, .35);
+    user-select: none;
 }
 
 div.center #search {
@@ -67,4 +68,5 @@ div.date {
     left: 15px;
     bottom: 0;
     text-shadow: 0 0 5px rgba(0, 0, 0, .35);
+    user-select: none;
 }
