@@ -1,4 +1,5 @@
 {
+  "private": true,
   "name": "homepage",
   "version": "1.0.0",
   "description": "A Google Chrome extension, which gives you a clean homepage",
@@ -6,6 +7,11 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "bump": "node scripts/bump.js $3"
   },
+  "keywords": [
+    "extension",
+    "homepage",
+    "browser-extension"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/robincunningham2/Homepage.git"
