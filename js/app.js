@@ -26,23 +26,41 @@ const Storage = {
         return data;
     },
     set: (key, data) => {
-        if (typeof key != 'string')
-            throw new TypeError(`Cannot convert type ${typeof key} to string`);
-        
-        data = JSON.stringify(data);
-        return localStorage.setItem(key, data);
+        try {
+            if (typeof key != 'string')
+                throw new TypeError(`Cannot convert type ${typeof key} to string`);
+            
+            data = JSON.stringify(data);
+            return localStorage.setItem(key, data);
+        } catch(e) {
+            throw new Error('Storage.set failed.'
+                + '\n\tThis might be an issue in the Storage system.'
+                + '\n\tTo reset, run Storage.clear()');
+        }
     },
     get: (key) => {
-        if (typeof key != 'string')
-            throw new TypeError(`Cannot convert type ${typeof key} to string`);
-        let data = localStorage.getItem(key);
-        data = JSON.parse(data);
-        return data;
+        try {
+            if (typeof key != 'string')
+                throw new TypeError(`Cannot convert type ${typeof key} to string`);
+            let data = localStorage.getItem(key);
+            data = JSON.parse(data);
+            return data;
+        } catch(e) {
+            throw new Error('Storage.set failed.'
+                + '\n\tThis might be an issue in the Storage system.'
+                + '\n\tTo reset, run Storage.clear()');
+        }
     },
     delete: (key) => {
-        if (typeof key != 'string')
-            throw new TypeError(`Cannot convert type ${typeof key} to string`);
-        return localStorage.removeItem(key);
+        try {
+            if (typeof key != 'string')
+                throw new TypeError(`Cannot convert type ${typeof key} to string`);
+            return localStorage.removeItem(key);
+        } catch(e) {
+            throw new Error('Storage.set failed.'
+                + '\n\tThis might be an issue in the Storage system.'
+                + '\n\tTo reset, run Storage.clear()');
+        }
     },
     clear: () => {
         return localStorage.clear();
