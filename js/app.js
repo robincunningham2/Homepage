@@ -14,16 +14,22 @@ $('.background').css({
 
 const Storage = {
     data: () => {
-        let data = {};
-        for (let i = 0; localStorage.key(i) != null; i++) {
-            const key = localStorage.key(i),
-                item = localStorage.getItem(key);
-            
-            data[key] = JSON.parse(item);
-        }
+        try {
+            let data = {};
+            for (let i = 0; localStorage.key(i) != null; i++) {
+                const key = localStorage.key(i),
+                    item = localStorage.getItem(key);
+                
+                data[key] = JSON.parse(item);
+            }
 
-        data['_length'] = localStorage.length;
-        return data;
+            data['_length'] = localStorage.length;
+            return data;
+        } catch(e) {
+            throw new Error('Storage.set failed.'
+                + '\n\tThis might be an issue in the Storage system.'
+                + '\n\tTo reset, run Storage.clear()');
+        }
     },
     set: (key, data) => {
         try {
