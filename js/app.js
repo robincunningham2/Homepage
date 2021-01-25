@@ -76,7 +76,16 @@ const Storage = {
 if (!Storage.get('init')) {
     Storage.clear();
     Storage.set('init', true);
+    Storage.set('searchEngine', 'Google');
 }
+
+const searchEngine = Storage.get('searchEngine'),
+    engines = {
+        Google: 'https://www.google.com/search?q=%s',
+        Bing: 'https://www.bing.com/search?q=%s'
+    };
+
+$('#search').attr('placeholder', `Search with ${searchEngine} or enter address`);
 
 const getTime = () => {
     const now = new Date();
@@ -126,6 +135,6 @@ $(document).on('keypress', (e) => {
         if (islink) {
             if (!input.split('//')[0].endsWith(':')) input = 'http://' + input;
             open(input, '_self');
-        } else open(`https://www.google.com/search?q=${input}`, '_self');
+        } else open(engines[searchEngine].replace('%s', input), '_self');
     }
 });
