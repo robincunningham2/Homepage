@@ -28,7 +28,7 @@ body {
 }
 
 .background {
-    background-size: auto 100%;
+    background-size: 100%;
     filter: blur(10px) brightness(85%);
 }
 
