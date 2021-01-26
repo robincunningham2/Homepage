@@ -3,7 +3,7 @@ if (typeof document == 'undefined') {
     throw new Error('Didn\'t find document object.');
 }
 
-const bgc = 4;
+const bgc = 6;
 
 let random = Math.floor(Math.random() * bgc) + 1;
 const url = `_backgrounds/bg${random}.jpg`;
